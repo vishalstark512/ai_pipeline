@@ -20,8 +20,6 @@ class UnetInferrer:
         shape = tensor_image.shape
         tensor_image = tf.reshape(tensor_image, [1, shape[0], shape[1], shape[2]])
         pred = self.model.predict(tensor_image)
-        print(pred.shape)
         display([tensor_image[0], pred[0]])
-        print("XXXXX")
         pred = pred.tolist()
         return {"segmentation_output": pred}
